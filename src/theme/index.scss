@@ -1,0 +1,18 @@
+:export {
+  // color
+  menuText: $menuText; //侧边菜单未激活文字
+  menuActiveText:$menuActiveText; // 侧边菜单激活文字
+  menuBg: $menuBg;// 侧边菜单背景
+  menuHover: $menuHover;// hover 颜色
+  subMenuBg: $subMenuBg;// 侧边菜单选中的背景
+  sideBarWidth: $sideBarWidth;// 选中侧边栏边框颜色
+
+  // px
+  sideBarWidth:$sideBarWidth; // 侧边展开宽度
+  sideBarMinWidth:$sideBarMinWidth; // 侧边闭合宽度
+  headerbarHeight:$headerbarHeight; // 头部高度
+  appMainPadding:$appMainPadding; //appMain 内边距
+  footerHeight:$footerHeight;// 底部高度
+  navBarHeight:$navBarHeight;//navbar
+  tagViewHeight:$tagViewHeight//tagsView 高度
+}
