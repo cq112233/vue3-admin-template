@@ -8,6 +8,7 @@ function resolve (dir) {
 }
 
 module.exports = {
+  lintOnSave: false,
   devServer: {
     hot: true,
     proxy: {
@@ -61,7 +62,6 @@ module.exports = {
       preProcessor: 'scss',
       patterns: [
         path.resolve(__dirname, `src/theme/${process.env.organization}/style/variables.scss`)
-        // path.resolve(__dirname, `src/theme/${process.env.organization}/style/variables-to-js.scss`)
       ]
     }
   },
@@ -94,7 +94,16 @@ module.exports = {
         '@': resolve('src'),
         '*': resolve(''),
         Assets: resolve('src/assets')
-      }
+      },
+      extensions: ['.ts', '.tsx', '.js', '.json', '.vue', '.css', '.less', 'scss', '.html'],
+      modules: [
+        'node_modules',
+        path.resolve(__dirname, 'src/components/common'),
+        path.resolve(__dirname, 'src/components/global')
+      ]
+    },
+    module: {
+      rules: [{ test: /\.ts$/, loader: 'ts-loader' }]
     },
     plugins: [
       AutoImport({

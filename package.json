@@ -11,6 +11,7 @@
     "nh-prod-build": "organization=nh vue-cli-service build",
     "public-prod-build": "organization=public vue-cli-service build",
     "server": "nodemon server/index.js",
+    "lint-fix": "eslint --fix --ext .js --ext .jsx --ext .vue src/ test/unit test/e2e/specs",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -48,6 +49,8 @@
     "sass-loader": "^8.0.2",
     "style-resources-loader": "^1.5.0",
     "svg-sprite-loader": "^6.0.11",
+    "ts-loader": "^8.2.0",
+    "typescript": "^4.4.4",
     "unplugin-auto-import": "^0.5.11",
     "unplugin-vue-components": "^0.17.18",
     "vue-cli-plugin-style-resources-loader": "^0.1.5"

@@ -1,6 +1,7 @@
 <template>
   <div class='dashboard'>
     {{$t('message.Home')}}
+
     <SlickList
       axis="x"
       v-model:list="fruits"
@@ -26,9 +27,11 @@
 </template>
 
 <script setup>
+import { TradingStatus } from '@/enums'
 //  引入组件
-import customMixin from '@/utils/mixin'
+import customMixin from '@/mixin'
 import { SlickList, SlickItem } from 'vue-slicksort'
+console.log(TradingStatus)
 const { onActivated, onMounted, ref } = customMixin()
 
 onActivated(() => {
