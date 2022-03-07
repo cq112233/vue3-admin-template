@@ -1,7 +1,8 @@
 <template>
   <div class='dashboard'>
     {{$t('message.Home')}}
-
+      <el-button type='primary' v-if="!permissionMap['about2.x']">主题色</el-button>
+      <el-button type='primary' size='small'>主题色</el-button>
     <SlickList
       axis="x"
       v-model:list="fruits"
@@ -29,10 +30,10 @@
 <script setup>
 import { TradingStatus } from '@/enums'
 //  引入组件
-import customMixin from '@/mixin'
+import customMixin from '@/mixin.js'
 import { SlickList, SlickItem } from 'vue-slicksort'
 console.log(TradingStatus)
-const { onActivated, onMounted, ref } = customMixin()
+const { onActivated, onMounted, ref, store, computed } = customMixin()
 
 onActivated(() => {
   console.log('激活')
@@ -41,7 +42,9 @@ onMounted(() => {
   console.log('创建')
 })
 const fruits = ref(['Apples', 'Bananas', 'xxxx'])
-
+const permissionMap = computed(() => {
+  return store.state.permission.permissionMap
+})
 </script>
 
 <script>

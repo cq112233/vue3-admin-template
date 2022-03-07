@@ -1,41 +1,24 @@
-
-// @use '../style/variables.scss' as *;
+// 详情配置见 https://github.com/element-plus/element-plus/blob/dev/packages/theme-chalk/src/common/var.scss
 $--colors: (
-  // "primary": (
-  //   "base": #409eff,
-  // ),
-  // "success": (
-  //   "base": #21ba45,
-  // ),
-  // "warning": (
-  //   "base": #f2711c,
-  // ),
-  // "danger": (
-  //   "base": #db2828,
-  // ),
-  // "error": (
-  //   "base": #db2828,
-  // ),
-  // "info": (
-  //   "base": #42b8dd,
-  // ),
-  "primary": (
-    "base": red,
+  'white': #ffffff,
+  'black': #000000,
+  'primary': (
+    'base': #409eff,
   ),
-  "success": (
-    "base": orange,
+  'success': (
+    'base': #67c23a,
   ),
-  "warning": (
-    "base": yellow,
+  'warning': (
+    'base': #e6a23c,
   ),
-  "danger": (
-    "base": green,
+  'danger': (
+    'base': #f56c6c,
   ),
-  "error": (
-    "base": cyan,
+  'error': (
+    'base': #f56c6c,
   ),
-  "info": (
-    "base": blue,
+  'info': (
+    'base': #909399,
   ),
 );
 
@@ -45,7 +28,7 @@ $--colors: (
   (
     // do not use same name, it will override.
     $colors: $--colors,
-    $button-padding-horizontal: ("default": 50px)
+    // $button-padding-horizontal: ("default": 16px,'small': 100px)
   );
 // if you want to import all
 // @use "element-plus/theme-chalk/src/index.scss" as *;
@@ -54,3 +37,5 @@ $--colors: (
 // @debug $--colors;
 // @import '../index.scss'
 // @use '../index.scss' as *;
+
+// @use '../custom/index.scss as *';

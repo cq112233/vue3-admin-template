@@ -85,12 +85,25 @@ const lang = computed(() => {
   return data
 })
 setTimeout(() => {
-  document.documentElement.style.setProperty('--qz-color-primary', 'red')
-  document.documentElement.style.setProperty('--qz-color-warning', 'blue')
+  // document.documentElement.style.setProperty('--qz-color-primary', 'red')
+  // document.documentElement.style.setProperty('--qz-color-warning', 'blue')
+  // document.documentElement.style['--el-color-primary'] = 'blue'
+
+  // document.documentElement.style.setProperty('--el-color-primary', 'blue')
+
+  const el = document.documentElement
+  // const el = document.getElementById('xxx')
+
+  // get css var
+  getComputedStyle(el).getPropertyValue('--el-color-primary')
+
+  console.log(getComputedStyle(el).getPropertyValue('--el-color-primary'))
+  // set css var
+  el.style.setProperty('--el-button--primary', 'red')
 }, 3000)
 
 setTimeout(() => {
-  document.documentElement.style.setProperty('--qz-color-primary', 'green')
+  // document.documentElement.style.setProperty('--qz-color-primary', 'green')
 }, 5000)
 
 console.log()

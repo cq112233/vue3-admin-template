@@ -49,9 +49,7 @@ module.exports = {
   css: {
     loaderOptions: {
       sass: {
-        // @use "@/theme/${process.env.organization}/style/custom.scss" as *;
         prependData: `
-        @use "@/theme/${process.env.organization}/style/custom.scss" as *;
         @use "@/theme/${process.env.organization}/elementPlus/index.scss" as *;
         `
       }
@@ -60,9 +58,7 @@ module.exports = {
   pluginOptions: {
     'style-resources-loader': {
       preProcessor: 'scss',
-      patterns: [
-        path.resolve(__dirname, `src/theme/${process.env.organization}/style/variables.scss`)
-      ]
+      patterns: []
     }
   },
   chainWebpack: (config) => {
@@ -87,6 +83,18 @@ module.exports = {
         symbolId: 'icon-[name]' // icon图标使用时的命名
       })
       .end()
+
+    const oneOfsMap = config.module.rule('scss').oneOfs.store
+    oneOfsMap.forEach((item) => {
+      item
+        .use('sass-resources-loader')
+        .loader('sass-resources-loader')
+        .options({
+          hoistUseStatements: true,
+          resources: [`./src/theme/${process.env.organization}/custom/index.scss`, './src/theme/variables.scss']
+        })
+        .end()
+    })
   },
   configureWebpack: {
     resolve: {

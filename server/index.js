@@ -34,7 +34,68 @@ app.post('/userinfo', (req, res) => {
   res.send({
     id: 1,
     username: 'zhangsan',
-    age: 18
+    age: 18,
+    // 显示层级
+    permissionList: [
+      {
+        code: 'nested',
+        ranked: 1,
+        hidden: false,
+        children: [
+          {
+            code: 'menu1',
+            ranked: 1,
+            hidden: false,
+            children: [
+              {
+                code: 'menu1.x',
+                hidden: true
+              }
+            ]
+          },
+          {
+            code: 'menu2',
+            ranked: 1,
+            hidden: true,
+            children: [
+              {
+                code: 'menu2.x',
+                hidden: false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        code: 'about',
+        ranked: 1,
+        hidden: false,
+        children: [
+          {
+            code: 'about1',
+            ranked: 1,
+            hidden: true,
+            children: [
+              {
+                code: 'about1.x',
+                hidden: true
+              }
+            ]
+          },
+          {
+            code: 'about2',
+            ranked: 1,
+            hidden: false,
+            children: [
+              {
+                code: 'about2.x',
+                hidden: false
+              }
+            ]
+          }
+        ]
+      }
+    ]
     // roles: ? ['admin'] : ['employee']
   })
 })

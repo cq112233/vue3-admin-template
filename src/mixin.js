@@ -45,6 +45,7 @@ function customMixin () {
     router,
     route,
     app,
+    computed,
     useAttrs,
     useSlots,
     useCssModule,

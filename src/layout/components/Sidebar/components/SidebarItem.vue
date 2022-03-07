@@ -1,10 +1,11 @@
 <template>
   <template v-if="!item.hidden">
-    <!-- 路由子元素只有小于一个 -->
+    <!-- 路由子元素只有小于等于一个 -->
     <template v-if="showSidebarItem(item.children, item)">
+      <!-- onlyOneChild.children 没有children -->
       <router-link
         :to="resolvePath(onlyOneChild.path)"
-        v-if="onlyOneChild.meta"
+        v-if="onlyOneChild.meta && !onlyOneChild.children"
       >
         <el-menu-item
           :index="resolvePath(onlyOneChild.path)"
@@ -15,6 +16,7 @@
         </el-menu-item>
       </router-link>
     </template>
+
     <!-- 子元素有两个 -->
     <el-sub-menu
       v-else
@@ -62,7 +64,7 @@ const props = defineProps({
   }
 })
 // 显示sidebarItem 的情况
-const onlyOneChild = ref(null)
+const onlyOneChild = ref(null) // onlyOneChild 数组
 const showSidebarItem = (children = [], parent) => {
   // 显示的子元素
   const showingChildren = children.filter((item) => {
@@ -84,7 +86,6 @@ const showSidebarItem = (children = [], parent) => {
   // 多个子元素
   return false
 }
-
 // 生成唯一标识
 const resolvePath = (routePath) => {
   return path.resolve(props.basePath, routePath)

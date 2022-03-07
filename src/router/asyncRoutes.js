@@ -12,7 +12,8 @@ const asyncRoutes = [
     path: '/nested',
     component: Layout,
     redirect: '/nested/menu1',
-    name: 'Nested',
+    name: 'nested',
+    alwaysShow: true,
     meta: {
       title: 'Nested',
       icon: 'nested'
@@ -21,31 +22,31 @@ const asyncRoutes = [
       {
         path: 'menu1',
         component: () => import('@/views/nested/menu1/index.vue'), // Parent router-view
-        name: 'Menu1',
+        name: 'menu1',
         meta: { title: 'Menu1', hiddenCode: 'Menu1', iconUrl: require('@/assets/images/reviews.png') },
         children: [
           {
             path: 'menu1-1',
             component: () => import('@/views/nested/menu1/menu1-1/index.vue'),
-            name: 'Menu1-1',
+            name: 'menu1-1',
             meta: { title: 'Menu1-1' }
           },
           {
             path: 'menu1-2',
             component: () => import('@/views/nested/menu1/menu1-2/index.vue'),
-            name: 'Menu1-2',
+            name: 'menu1-2',
             meta: { title: 'Menu1-2' },
             children: [
               {
                 path: 'menu1-2-1',
                 component: () => import('@/views/nested/menu1/menu1-2/menu1-2-1/index.vue'),
-                name: 'Menu1-2-1',
+                name: 'menu1-2-1',
                 meta: { title: 'Menu1-2-1' }
               },
               {
                 path: 'menu1-2-2',
                 component: () => import('@/views/nested/menu1/menu1-2/menu1-2-2/index.vue'),
-                name: 'Menu1-2-2',
+                name: 'menu1-2-2',
                 meta: { title: 'Menu1-2-2' }
               }
             ]
@@ -53,7 +54,7 @@ const asyncRoutes = [
           {
             path: 'menu1-3',
             component: () => import('@/views/nested/menu1/menu1-3/index.vue'),
-            name: 'Menu1-3',
+            name: 'menu1-3',
             meta: { title: 'Menu1-3' }
           }
         ]
@@ -61,8 +62,32 @@ const asyncRoutes = [
       {
         path: 'menu2',
         component: () => import('@/views/nested/menu2/index.vue'),
-        name: 'Menu2',
+        name: 'menu2',
         meta: { title: 'menu2' }
+      }
+    ]
+  },
+  {
+    path: '/about',
+    component: Layout,
+    redirect: '/about',
+    name: 'about',
+    alwaysShow: true,
+    meta: {
+      title: 'About'
+    },
+    children: [
+      {
+        path: 'about1',
+        component: () => import('@/views/nested/menu1/index.vue'), // Parent router-view
+        name: 'about1',
+        meta: { title: 'About1' }
+      },
+      {
+        path: 'about2',
+        component: () => import('@/views/nested/menu1/index.vue'), // Parent router-view
+        name: 'about2',
+        meta: { title: 'About2' }
       }
     ]
   },
