@@ -56,6 +56,21 @@ export function getTest () {
     method: 'get'
   })
 }
+// 用户信息
+export function getTest1 () {
+  return request({
+    url: '/api/test1',
+    method: 'get'
+  })
+}
+
+// 用户信息
+export function getTest2 () {
+  return request({
+    url: '/api/test2',
+    method: 'get'
+  })
+}
 
 // 用户权限列表
 /**

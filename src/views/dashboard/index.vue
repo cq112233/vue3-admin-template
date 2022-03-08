@@ -1,8 +1,14 @@
 <template>
   <div class='dashboard'>
     {{$t('message.Home')}}
-      <el-button type='primary' v-if="!permissionMap['about2.x']">主题色</el-button>
-      <el-button type='primary' size='small'>主题色</el-button>
+    <el-button
+      type='primary'
+      v-if="!permissionMap['about2.x']"
+    >根据后台配置是否需要该功能</el-button>
+    <el-button
+      type='primary'
+      size='small'
+    >主题色</el-button>
     <SlickList
       axis="x"
       v-model:list="fruits"
@@ -24,6 +30,7 @@
         </div>
       </SlickItem>
     </SlickList>
+    <el-button @click="clickBtn"> test api</el-button>
   </div>
 </template>
 
@@ -32,6 +39,9 @@ import { TradingStatus } from '@/enums'
 //  引入组件
 import customMixin from '@/mixin.js'
 import { SlickList, SlickItem } from 'vue-slicksort'
+
+import { getTest, getTest1, getTest2 } from '@/apis'
+
 console.log(TradingStatus)
 const { onActivated, onMounted, ref, store, computed } = customMixin()
 
@@ -41,6 +51,14 @@ onActivated(() => {
 onMounted(() => {
   console.log('创建')
 })
+const clickBtn = () => {
+  getTest()
+}
+setTimeout(() => {
+  getTest()
+  getTest1()
+  getTest2()
+}, 15000)
 const fruits = ref(['Apples', 'Bananas', 'xxxx'])
 const permissionMap = computed(() => {
   return store.state.permission.permissionMap
@@ -86,7 +104,6 @@ export default {
   flex-wrap: wrap;
   margin: 20px 0;
   background-color: #fff;
-
 }
 .menu-dragging {
   width: 188px;
@@ -105,5 +122,9 @@ export default {
   .label {
     margin-bottom: 40px;
   }
+}
+#chart {
+  width: 100%;
+  height: 500px;
 }
 </style>

@@ -12,8 +12,6 @@ function hasPermission (permissionMap, route) {
   // }
 
   if (route) {
-    // console.log(route.path.replace('/', ''))
-    // debugger
     return permissionMap[route.name] === undefined ? true : !permissionMap[route.name]
   } else {
     return true

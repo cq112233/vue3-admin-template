@@ -50,7 +50,6 @@ export default {
       return new Promise((resolve) => {
         getUserInfo({}).then(
           (res) => {
-            console.log(res)
             commit('setUserInfo', res.data)
             resolve(res)
           }

@@ -1,34 +1,7 @@
 <template>
-
-  <!-- <draggable
-    class="menuContain"
-    v-model="myArray"
-    item-key="id"
-    tag="transition-group"
-    :component-data="{ tag: 'section', name: 'flip-list', type: 'transition' }"
-    @end="sendEndApi"
-  >
-    <template #item="{ element }">
-      <div class="menu">
-        <div class="label">{{ element.name }}</div>
-      </div>
-    </template>
-  </draggable> -->
   <router-view/>
 </template>
 <script setup>
-//  引入组件
-// import customMixin from '@/utils/mixin'
-// import draggable from 'vuedraggable'
-// const { ref } = customMixin()
-// const myArray = ref([
-//   { name: 'Apples', id: 1 },
-//   { name: 'Bananas', id: 2 },
-//   { name: 'xxxx', id: 3 }
-// ])
-// const sendEndApi = (val) => {
-//   console.log(val)
-// }
 </script>
 
 <style lang="scss" scoped>

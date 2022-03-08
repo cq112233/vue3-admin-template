@@ -4,6 +4,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import './styles/reset-style.scss' // 初始化样式
+import 'element-plus/dist/index.css' // 导入 ElementPlus 全部样式
 import '@/permission' // 路由权限
 import '@/plugins/nprogress' // 路由进度条
 import '@/plugins/themeVar' // 主题变量

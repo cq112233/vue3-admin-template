@@ -16,6 +16,7 @@ app.post('/refreshToken', (req, res) => {
     accessToken: 'i am token 1',
     refreshToken: 'i am refreshToken 1'
   })
+  token = 'i am token 1'
 })
 
 app.post('/login', (req, res) => {
@@ -26,12 +27,17 @@ app.post('/login', (req, res) => {
     accessToken: `i am token ${req.body.roleId}`,
     refreshToken: `i am refreshToken ${req.body.roleId}`
   })
+
+  setTimeout(() => {
+    token = 'xxxxx'
+  }, 10000)
 })
 
 app.post('/userinfo', (req, res) => {
   // render函数就是express对模板引擎的调用方法，它会自动调用模板引擎去你配置的目录下找index.html文件，并解析返回
   // if (token !== req.headers.authorization) return res.status(401).send()
-  res.send({
+  // res.status(401).send()
+  res.status(200).send({
     id: 1,
     username: 'zhangsan',
     age: 18,
@@ -100,10 +106,30 @@ app.post('/userinfo', (req, res) => {
   })
 })
 app.get('/test', (req, res) => {
+  // console.log(req.headers.authorization, token)
+  // return res.status(401).send()
   // render函数就是express对模板引擎的调用方法，它会自动调用模板引擎去你配置的目录下找index.html文件，并解析返回
   if (token !== req.headers.authorization) return res.status(401).send()
   res.send({
     title: '标题'
+  })
+})
+app.get('/test1', (req, res) => {
+  // console.log(req.headers.authorization, token)
+  // return res.status(401).send()
+  // render函数就是express对模板引擎的调用方法，它会自动调用模板引擎去你配置的目录下找index.html文件，并解析返回
+  if (token !== req.headers.authorization) return res.status(401).send()
+  res.send({
+    title: '标题1'
+  })
+})
+app.get('/test2', (req, res) => {
+  // console.log(req.headers.authorization, token)
+  // return res.status(401).send()
+  // render函数就是express对模板引擎的调用方法，它会自动调用模板引擎去你配置的目录下找index.html文件，并解析返回
+  if (token !== req.headers.authorization) return res.status(401).send()
+  res.send({
+    title: '标题2'
   })
 })
 
